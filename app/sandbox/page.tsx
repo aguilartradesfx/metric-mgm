@@ -92,7 +92,7 @@ export default function SandboxPage() {
                 backgroundPosition: 'center',
               }}
             >
-              {(['light', 'lighter', 'dark', 'darker'] as const).map((variant) => (
+              {(['light', 'dark', 'on-image'] as const).map((variant) => (
                 <Glass key={variant} variant={variant} className="p-5">
                   <p className="text-caption mb-2">{variant}</p>
                   <p className="text-body-sm opacity-80">Glass surface with backdrop-blur and reflective shine gradient.</p>
