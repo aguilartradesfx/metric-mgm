@@ -24,10 +24,10 @@ export default function Home() {
         {/* 1. Hero */}
         <HeroHome />
 
-        {/* 2. Mission statement — text left, animated stats right */}
-        <section className="py-24" style={{ background: 'var(--cream)' }}>
+        {/* 2. Mission statement */}
+        <section className="py-16 md:py-24" style={{ background: 'var(--cream)' }}>
           <Container>
-            <div className="grid gap-16 items-center" style={{ gridTemplateColumns: '1.1fr 1fr' }}>
+            <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-12 md:gap-16 items-center">
 
               {/* Left — statement text */}
               <Reveal>
@@ -55,15 +55,13 @@ export default function Home() {
                 </Link>
               </Reveal>
 
-              {/* Right — circular occupancy ring */}
+              {/* Right — occupancy ring */}
               <Reveal delay={1}>
-                <div className="glass-card p-8 flex flex-col items-center" style={{ borderRadius: 24 }}>
+                <div className="glass-card p-6 md:p-8 flex flex-col items-center" style={{ borderRadius: 24 }}>
                   {/* Ring */}
-                  <div className="relative flex items-center justify-center mb-6" style={{ width: 200, height: 200 }}>
-                    <svg width="200" height="200" viewBox="0 0 120 120" style={{ transform: 'rotate(-90deg)' }}>
-                      {/* Track */}
+                  <div className="relative flex items-center justify-center mb-6" style={{ width: 180, height: 180 }}>
+                    <svg width="180" height="180" viewBox="0 0 120 120" style={{ transform: 'rotate(-90deg)' }}>
                       <circle cx="60" cy="60" r="52" fill="none" stroke="var(--sand)" strokeWidth="7" />
-                      {/* Fill — 94.2% of circumference (2π×52≈326.7), offset = 326.7×(1-0.942)≈19 */}
                       <circle
                         cx="60" cy="60" r="52"
                         fill="none"
@@ -81,17 +79,14 @@ export default function Home() {
                         </linearGradient>
                       </defs>
                     </svg>
-                    {/* Center label */}
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
-                      <span className="font-semibold text-espresso" style={{ fontFamily: 'var(--font-display)', fontSize: '2.25rem', letterSpacing: '-0.05em', lineHeight: 1 }}>94.2%</span>
+                      <span className="font-semibold text-espresso" style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', letterSpacing: '-0.05em', lineHeight: 1 }}>94.2%</span>
                       <span className="text-caption text-walnut mt-1" style={{ letterSpacing: '0.06em' }}>OCCUPANCY</span>
                     </div>
                   </div>
 
-                  {/* Label */}
                   <p className="text-body-sm text-walnut mb-6 text-center">Average portfolio occupancy rate across all markets</p>
 
-                  {/* Secondary stats */}
                   <div className="w-full flex gap-3 pt-6 border-t" style={{ borderColor: 'var(--sand)' }}>
                     {[
                       { stat: '+8.4%', label: 'NOI growth YoY' },
@@ -99,7 +94,7 @@ export default function Home() {
                       { stat: '45+',   label: 'Professionals' },
                     ].map((s) => (
                       <div key={s.label} className="flex-1 text-center">
-                        <p className="font-semibold text-espresso" style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', letterSpacing: '-0.04em', lineHeight: 1 }}>{s.stat}</p>
+                        <p className="font-semibold text-espresso" style={{ fontFamily: 'var(--font-display)', fontSize: '1.125rem', letterSpacing: '-0.04em', lineHeight: 1 }}>{s.stat}</p>
                         <p className="text-caption text-walnut mt-1" style={{ letterSpacing: '0.04em' }}>{s.label}</p>
                       </div>
                     ))}
@@ -114,34 +109,31 @@ export default function Home() {
         {/* 3. Infinite markets carousel */}
         <InfiniteMarketsCarousel />
 
-        {/* 4. Strength Cards — What sets us apart */}
+        {/* 4. Strength Cards */}
         <StrengthCardsSection />
 
-        {/* 5. Service Strip → /about */}
-        <section className="relative overflow-hidden" style={{ minHeight: 680 }}>
+        {/* 5. Service Strip */}
+        <section className="relative overflow-hidden" style={{ minHeight: 600 }}>
           <div className="absolute inset-0"
             style={{ backgroundImage: `url('${assets.home.serviceStrip}')`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-          {/* Stronger overlay for more visual impact */}
           <div className="absolute inset-0" style={{ background: 'linear-gradient(120deg, rgba(30,22,17,0.78) 0%, rgba(30,22,17,0.40) 60%, rgba(30,22,17,0.60) 100%)' }} />
-          {/* Radial glow accent */}
           <div className="absolute pointer-events-none" style={{ top: '50%', left: '38%', transform: 'translate(-50%,-50%)', width: 600, height: 600, background: 'radial-gradient(circle, rgba(184,111,74,0.18), transparent 65%)', borderRadius: '50%' }} />
 
-          <Container className="relative z-10 flex items-center" style={{ minHeight: 680 }}>
+          <Container className="relative z-10 flex items-center py-20 md:py-0" style={{ minHeight: 600 }}>
             <Reveal>
-              <div className="max-w-[680px]">
+              <div className="w-full md:max-w-[680px]">
                 <p className="text-caption mb-5 flex items-center gap-1.5" style={{ color: 'rgba(255,212,184,0.72)' }}>
                   <span style={{ fontSize: 7 }}>◆</span> Our Approach
                 </p>
-                <h2 className="font-medium mb-6" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.25rem, 4.5vw, 3.5rem)', letterSpacing: '-0.035em', lineHeight: 1.08, color: 'var(--cream-light)' }}>
+                <h2 className="font-medium mb-6" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', letterSpacing: '-0.035em', lineHeight: 1.08, color: 'var(--cream-light)' }}>
                   Service tailored to meet{' '}
                   <em className="italic font-normal" style={{ color: 'var(--peach-glow)' }}>and exceed</em>{' '}
                   expectations.
                 </h2>
-                <p className="text-body-lg mb-10" style={{ color: 'rgba(245,238,226,0.75)', lineHeight: 1.72, maxWidth: 540 }}>
+                <p className="text-body mb-10" style={{ color: 'rgba(245,238,226,0.75)', lineHeight: 1.72, maxWidth: 540 }}>
                   Metric Management Group curates and oversees a remarkable portfolio of premium apartment communities,
                   offering residents inviting, well-maintained spaces they are proud to call home.
                 </p>
-                {/* Two CTAs */}
                 <div className="flex gap-3 flex-wrap">
                   <Link href="/about"
                     className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-body font-medium transition-all duration-300 hover:-translate-y-0.5"
@@ -159,33 +151,31 @@ export default function Home() {
           </Container>
         </section>
 
-        {/* 6. Testimonial — between the two photo strips */}
+        {/* 6. Testimonial */}
         <TestimonialGlass />
 
-        {/* 7. Careers Callout → /careers */}
-        <section className="relative overflow-hidden" style={{ minHeight: 680 }}>
+        {/* 7. Careers Callout */}
+        <section className="relative overflow-hidden" style={{ minHeight: 600 }}>
           <div className="absolute inset-0"
             style={{ backgroundImage: `url('${assets.home.careersCallout}')`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-          {/* Stronger overlay */}
           <div className="absolute inset-0" style={{ background: 'linear-gradient(240deg, rgba(30,22,17,0.80) 0%, rgba(30,22,17,0.42) 55%, rgba(30,22,17,0.65) 100%)' }} />
-          {/* Glow accent opposite side */}
           <div className="absolute pointer-events-none" style={{ top: '50%', right: '-5%', transform: 'translateY(-50%)', width: 560, height: 560, background: 'radial-gradient(circle, rgba(184,111,74,0.22), transparent 65%)', borderRadius: '50%' }} />
 
-          <Container className="relative z-10 flex items-center justify-end" style={{ minHeight: 680 }}>
+          <Container className="relative z-10 flex items-center justify-start md:justify-end py-20 md:py-0" style={{ minHeight: 600 }}>
             <Reveal delay={1}>
-              <div className="max-w-[620px] text-right">
-                <p className="text-caption mb-5 flex items-center justify-end gap-1.5" style={{ color: 'rgba(255,212,184,0.72)' }}>
+              <div className="w-full md:max-w-[620px] text-left md:text-right">
+                <p className="text-caption mb-5 flex items-center justify-start md:justify-end gap-1.5" style={{ color: 'rgba(255,212,184,0.72)' }}>
                   Careers <span style={{ fontSize: 7 }}>◆</span>
                 </p>
-                <h2 className="font-medium mb-6" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.25rem, 4.5vw, 3.5rem)', letterSpacing: '-0.035em', lineHeight: 1.08, color: 'var(--cream-light)' }}>
+                <h2 className="font-medium mb-6" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', letterSpacing: '-0.035em', lineHeight: 1.08, color: 'var(--cream-light)' }}>
                   <em className="italic font-normal" style={{ color: 'var(--peach-glow)' }}>Grow</em>{' '}
                   with the best.
                 </h2>
-                <p className="text-body-lg mb-10" style={{ color: 'rgba(245,238,226,0.75)', lineHeight: 1.72 }}>
+                <p className="text-body mb-10" style={{ color: 'rgba(245,238,226,0.75)', lineHeight: 1.72 }}>
                   Looking for a career that offers growth, innovation, and collaboration? At Metric Management Group,
                   we provide unparalleled opportunities to advance, learn, and make an impact.
                 </p>
-                <div className="flex gap-3 flex-wrap justify-end">
+                <div className="flex gap-3 flex-wrap justify-start md:justify-end">
                   <Link href="/careers"
                     className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-body font-medium transition-all duration-300 hover:-translate-y-0.5"
                     style={{ background: 'var(--terracotta)', color: 'var(--cream-light)' }}>

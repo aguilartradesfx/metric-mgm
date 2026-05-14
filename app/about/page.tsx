@@ -67,43 +67,39 @@ export default function AboutPage() {
         />
 
         {/* ── Intro ── */}
-        <section className="py-24" style={{ background: 'linear-gradient(180deg, var(--cream-light) 0%, var(--cream) 100%)' }}>
+        <section className="py-16 md:py-24" style={{ background: 'linear-gradient(180deg, var(--cream-light) 0%, var(--cream) 100%)' }}>
           <Container>
-            <div className="grid gap-16 items-center" style={{ gridTemplateColumns: '1fr 1fr' }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
 
-              {/* Left — statement */}
               <Reveal>
                 <p className="text-caption text-terracotta flex items-center gap-2 mb-5">
                   <span style={{ fontSize: 7 }}>◆</span> Who we are
                 </p>
-                <p className="font-medium text-espresso" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.6rem, 2.8vw, 2.25rem)', letterSpacing: '-0.03em', lineHeight: 1.18 }}>
+                <p className="font-medium text-espresso" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.5rem, 2.8vw, 2.25rem)', letterSpacing: '-0.03em', lineHeight: 1.18 }}>
                   Acquiring, developing, and managing communities that{' '}
                   <em className="text-terracotta italic font-normal">instill confidence</em>{' '}
                   in our investors.
                 </p>
               </Reveal>
 
-              {/* Right — 3 large stats, no paragraphs */}
               <Reveal delay={1}>
                 <div className="flex flex-col">
                   {[
                     { stat: '225+', label: 'Units under active management', sub: 'Across TX, AZ & FL' },
                     { stat: '+14%', label: 'Average NOI improvement',       sub: 'Year-one track record' },
                     { stat: '6',    label: 'Active markets',                sub: 'Houston · Austin · Dallas · San Antonio · Phoenix · Daytona' },
-                  ].map((item, i) => (
+                  ].map((item) => (
                     <div
                       key={item.stat}
-                      className="group flex gap-6 py-7 border-b"
+                      className="group flex gap-6 py-6 md:py-7 border-b"
                       style={{ borderColor: 'var(--sand)' }}
                     >
-                      {/* Large stat */}
                       <span
                         className="font-semibold flex-shrink-0"
-                        style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', letterSpacing: '-0.05em', lineHeight: 1, color: 'var(--terracotta)', minWidth: 90 }}
+                        style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)', letterSpacing: '-0.05em', lineHeight: 1, color: 'var(--terracotta)', minWidth: 80 }}
                       >
                         {item.stat}
                       </span>
-                      {/* Labels */}
                       <div className="self-center">
                         <p className="font-medium text-espresso mb-0.5" style={{ fontSize: '0.9375rem', lineHeight: 1.3 }}>{item.label}</p>
                         <p className="text-caption text-walnut" style={{ letterSpacing: '0.05em' }}>{item.sub}</p>
@@ -118,7 +114,7 @@ export default function AboutPage() {
         </section>
 
         {/* ── Strategy ── */}
-        <section className="py-24" style={{ background: 'var(--cream)' }}>
+        <section className="py-16 md:py-24" style={{ background: 'var(--cream)' }}>
           <Container>
             <Reveal>
               <SectionHeader
@@ -126,7 +122,7 @@ export default function AboutPage() {
                 title={<>Three pillars, <em className="text-terracotta italic font-normal">one philosophy.</em></>}
               />
             </Reveal>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-6">
               {STRATEGY.map((s, i) => (
                 <Reveal key={s.num} delay={(i % 3) as 0 | 1 | 2}>
                   <div className="card-interactive rounded-[22px] overflow-hidden h-full flex flex-col"
@@ -146,14 +142,13 @@ export default function AboutPage() {
           </Container>
         </section>
 
-        {/* ── Values — editorial list + image ── */}
-        <section className="py-24" style={{ background: 'linear-gradient(180deg, var(--cream) 0%, var(--cream-light) 100%)' }}>
+        {/* ── Values ── */}
+        <section className="py-16 md:py-24" style={{ background: 'linear-gradient(180deg, var(--cream) 0%, var(--cream-light) 100%)' }}>
           <Container>
-            <div className="grid gap-16 items-start" style={{ gridTemplateColumns: '1fr 1.15fr' }}>
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_1.15fr] gap-12 md:gap-16 items-start">
 
-              {/* Left — sticky image + header */}
               <Reveal>
-                <div className="sticky top-28">
+                <div className="md:sticky md:top-28">
                   <SectionHeader
                     eyebrow="Core values"
                     title={<>What we <em className="text-terracotta italic font-normal">stand for.</em></>}
@@ -171,16 +166,14 @@ export default function AboutPage() {
                 </div>
               </Reveal>
 
-              {/* Right — numbered list */}
               <Reveal delay={1}>
                 <div>
-                  {VALUES.map((v, i) => (
+                  {VALUES.map((v) => (
                     <div
                       key={v.num}
-                      className="group flex gap-6 py-7 border-b"
+                      className="group flex gap-5 md:gap-6 py-6 md:py-7 border-b"
                       style={{ borderColor: 'var(--sand)' }}
                     >
-                      {/* Number watermark */}
                       <span
                         className="font-semibold flex-shrink-0 transition-colors duration-300 group-hover:text-terracotta"
                         style={{
@@ -212,8 +205,8 @@ export default function AboutPage() {
           </Container>
         </section>
 
-        {/* ── Why Metric — large number + feature rows ── */}
-        <section className="py-24" style={{ background: 'var(--cream-light)' }}>
+        {/* ── Why Metric ── */}
+        <section className="py-16 md:py-24" style={{ background: 'var(--cream-light)' }}>
           <Container>
             <Reveal>
               <SectionHeader
@@ -222,11 +215,11 @@ export default function AboutPage() {
               />
             </Reveal>
 
-            <div className="grid gap-4" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {WHY.map((w, i) => (
                 <Reveal key={w.title} delay={(i % 2) as 0 | 1}>
                   <div
-                    className="group relative rounded-[20px] p-8 overflow-hidden transition-all duration-300 hover:-translate-y-1"
+                    className="group relative rounded-[20px] p-7 md:p-8 overflow-hidden transition-all duration-300 hover:-translate-y-1"
                     style={{
                       background: 'rgba(255,252,246,0.60)',
                       backdropFilter: BLUR,
@@ -235,7 +228,6 @@ export default function AboutPage() {
                       boxShadow: '0 4px 18px rgba(30,22,17,0.07)',
                     }}
                   >
-                    {/* Large watermark number */}
                     <span
                       className="absolute right-6 top-4 font-bold select-none pointer-events-none transition-opacity duration-300 group-hover:opacity-20"
                       style={{

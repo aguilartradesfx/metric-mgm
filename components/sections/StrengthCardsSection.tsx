@@ -48,14 +48,14 @@ export function StrengthCardsSection() {
 
   return (
     <section
-      className="py-24"
+      className="py-16 md:py-24"
       style={{ background: 'linear-gradient(180deg, var(--cream-light) 0%, var(--cream) 100%)' }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
       <Container>
         {/* Header */}
-        <div className="mb-12">
+        <div className="mb-10 md:mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-caption text-walnut mb-5">
             <span className="text-terracotta" style={{ fontSize: 7 }}>◆</span>
             Why Metric
@@ -65,18 +65,17 @@ export function StrengthCardsSection() {
           </h2>
         </div>
 
-        {/* Carousel body */}
-        <div className="grid gap-12 items-center" style={{ gridTemplateColumns: '1fr 1.1fr' }}>
+        {/* Carousel body — stacks on mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-8 md:gap-12 items-center">
 
-          {/* Left — vertical image frame */}
-          <div className="relative" style={{ aspectRatio: '3/4' }}>
-            {/* Decorative corner accents */}
+          {/* Left — image frame */}
+          <div className="relative aspect-[4/3] md:aspect-[3/4]">
+            {/* Corner accents */}
             <div className="absolute z-10 pointer-events-none"
               style={{ top: -10, left: -10, width: 40, height: 40, borderTop: '2px solid var(--terracotta)', borderLeft: '2px solid var(--terracotta)', borderRadius: '4px 0 0 0' }} />
             <div className="absolute z-10 pointer-events-none"
               style={{ bottom: -10, right: -10, width: 40, height: 40, borderBottom: '2px solid var(--terracotta)', borderRight: '2px solid var(--terracotta)', borderRadius: '0 0 4px 0' }} />
 
-            {/* Image with crossfade */}
             <div className="absolute inset-0 rounded-[22px] overflow-hidden" style={{ boxShadow: '0 32px 80px -16px rgba(30,22,17,0.22)' }}>
               <div
                 className="absolute inset-0 transition-opacity duration-500"
@@ -87,7 +86,6 @@ export function StrengthCardsSection() {
                   opacity: transitioning ? 0 : 1,
                 }}
               />
-              {/* Subtle bottom gradient */}
               <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 55%, rgba(30,22,17,0.45) 100%)' }} />
             </div>
 
@@ -104,23 +102,19 @@ export function StrengthCardsSection() {
               className="transition-all duration-340"
               style={{ opacity: transitioning ? 0 : 1, transform: transitioning ? 'translateY(8px)' : 'translateY(0)' }}
             >
-              {/* Eyebrow */}
               <p className="text-caption text-terracotta flex items-center gap-2 mb-5">
                 <span style={{ fontSize: 7 }}>◆</span> Our strengths
               </p>
 
-              {/* Title */}
               <h3 className="font-medium text-espresso mb-6"
                 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', letterSpacing: '-0.03em', lineHeight: 1.1 }}>
                 {slide.title}
               </h3>
 
-              {/* Description */}
               <p className="text-body text-walnut mb-8" style={{ lineHeight: 1.75, maxWidth: 520 }}>
                 {slide.shortDescription}
               </p>
 
-              {/* Key benefits */}
               <ul className="flex flex-col gap-3 mb-10">
                 {slide.keyBenefits.slice(0, 3).map((b, i) => (
                   <li key={i} className="flex items-start gap-3 text-body text-walnut">
@@ -130,7 +124,6 @@ export function StrengthCardsSection() {
                 ))}
               </ul>
 
-              {/* CTA */}
               <Link
                 href={`/strengths/${slide.slug}`}
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-body font-medium transition-all duration-300 hover:-translate-y-0.5"
@@ -140,7 +133,7 @@ export function StrengthCardsSection() {
               </Link>
             </div>
 
-            {/* Navigation arrows */}
+            {/* Navigation */}
             <div className="flex items-center gap-3 mt-10">
               <button
                 onClick={goPrev}

@@ -21,10 +21,10 @@ const SECTORS = [
 ]
 
 const PROCESS = [
-  { num: '01', title: 'Analysis & Assessment',        desc: 'A thorough evaluation of asset strengths, opportunities, and market positioning — before a single plan is written.' },
-  { num: '02', title: 'Expert Project Management',    desc: 'We oversee every aspect of the process with precision, from initial planning through final execution.' },
+  { num: '01', title: 'Analysis & Assessment',          desc: 'A thorough evaluation of asset strengths, opportunities, and market positioning — before a single plan is written.' },
+  { num: '02', title: 'Expert Project Management',      desc: 'We oversee every aspect of the process with precision, from initial planning through final execution.' },
   { num: '03', title: 'Data-Driven Marketing Strategy', desc: 'Targeted strategies rooted in comprehensive market research — occupancy driven by insight, not guesswork.' },
-  { num: '04', title: 'Lease-Up & Sales Mobilization', desc: 'Strategic lease-up plans for a successful transition from development to long-term stabilized operations.' },
+  { num: '04', title: 'Lease-Up & Sales Mobilization',  desc: 'Strategic lease-up plans for a successful transition from development to long-term stabilized operations.' },
 ]
 
 const METRICS = [
@@ -41,7 +41,6 @@ export default function ManagementPage() {
     <>
       <Header />
       <main>
-        {/* Hero — no subtitle here, moved below */}
         <PageHero
           eyebrow="Management"
           title={<>Strategic leadership for a <em className="italic font-normal" style={{ color: 'var(--peach-glow)' }}>thriving future.</em></>}
@@ -49,11 +48,10 @@ export default function ManagementPage() {
         />
 
         {/* ── Intro + Metrics Dashboard ── */}
-        <section className="py-24" style={{ background: 'linear-gradient(180deg, var(--cream-light) 0%, var(--cream) 100%)' }}>
+        <section className="py-16 md:py-24" style={{ background: 'linear-gradient(180deg, var(--cream-light) 0%, var(--cream) 100%)' }}>
           <Container>
-            <div className="grid gap-16 items-center" style={{ gridTemplateColumns: '1fr 1fr' }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
 
-              {/* Left — intro text */}
               <Reveal>
                 <p className="text-caption text-terracotta flex items-center gap-2 mb-5">
                   <span style={{ fontSize: 7 }}>◆</span> About our services
@@ -71,10 +69,8 @@ export default function ManagementPage() {
                 </Link>
               </Reveal>
 
-              {/* Right — animated metrics dashboard */}
               <Reveal delay={1}>
-                <div className="glass-card p-8" style={{ borderRadius: 24 }}>
-                  {/* Dashboard header */}
+                <div className="glass-card p-6 md:p-8" style={{ borderRadius: 24 }}>
                   <div className="flex items-center justify-between mb-7">
                     <span className="text-body-sm font-medium text-espresso">Portfolio Overview</span>
                     <div className="flex items-center gap-1.5 text-caption" style={{ color: 'var(--terracotta)' }}>
@@ -82,8 +78,6 @@ export default function ManagementPage() {
                       Live
                     </div>
                   </div>
-
-                  {/* Metric bars */}
                   <div className="flex flex-col gap-5">
                     {METRICS.map((m, i) => (
                       <div key={m.label}>
@@ -104,8 +98,6 @@ export default function ManagementPage() {
                       </div>
                     ))}
                   </div>
-
-                  {/* Bottom stat row */}
                   <div className="flex gap-4 mt-8 pt-6 border-t" style={{ borderColor: 'var(--sand)' }}>
                     {[{ stat: '225+', label: 'Units' }, { stat: '6', label: 'Markets' }, { stat: '45+', label: 'Team members' }].map((s) => (
                       <div key={s.label} className="flex-1 text-center">
@@ -121,7 +113,7 @@ export default function ManagementPage() {
         </section>
 
         {/* ── Sector cards ── */}
-        <section className="py-24" style={{ background: 'var(--cream)' }}>
+        <section className="py-16 md:py-24" style={{ background: 'var(--cream)' }}>
           <Container>
             <Reveal>
               <SectionHeader
@@ -129,8 +121,7 @@ export default function ManagementPage() {
                 title={<>Three sectors, <em className="text-terracotta italic font-normal">one standard.</em></>}
               />
             </Reveal>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-6">
               {SECTORS.map((s, i) => (
                 <Reveal key={s.slug} delay={(i % 3) as 0 | 1 | 2}>
                   <Link href={`/management/${s.slug}`}
@@ -162,7 +153,7 @@ export default function ManagementPage() {
         </section>
 
         {/* ── Process — editorial numbered rows ── */}
-        <section className="py-24" style={{ background: 'linear-gradient(180deg, var(--cream) 0%, var(--cream-light) 100%)' }}>
+        <section className="py-16 md:py-24" style={{ background: 'linear-gradient(180deg, var(--cream) 0%, var(--cream-light) 100%)' }}>
           <Container>
             <Reveal>
               <SectionHeader
@@ -175,34 +166,28 @@ export default function ManagementPage() {
               {PROCESS.map((step, i) => (
                 <Reveal key={step.num} delay={(i % 2) as 0 | 1}>
                   <div
-                    className="group grid border-b transition-colors duration-300 hover:bg-[rgba(255,252,246,0.70)]"
-                    style={{
-                      gridTemplateColumns: '72px 1fr 1.1fr',
-                      gap: '0 40px',
-                      padding: '36px 0',
-                      borderColor: 'var(--sand)',
-                    }}
+                    className="group border-b transition-colors duration-300 hover:bg-[rgba(255,252,246,0.70)]"
+                    style={{ padding: '28px 0 28px', borderColor: 'var(--sand)' }}
                   >
-                    {/* Number */}
-                    <span
-                      className="font-semibold transition-colors duration-300 group-hover:opacity-100"
-                      style={{ fontFamily: 'var(--font-display)', fontSize: '1.625rem', letterSpacing: '-0.04em', lineHeight: 1.1, color: 'var(--terracotta)', opacity: 0.45, paddingTop: 2 }}
-                    >
-                      {step.num}
-                    </span>
-
-                    {/* Title */}
-                    <h3
-                      className="font-medium text-espresso self-start"
-                      style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.1rem, 1.8vw, 1.4rem)', letterSpacing: '-0.02em', lineHeight: 1.2, paddingTop: 2 }}
-                    >
-                      {step.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-body text-walnut" style={{ lineHeight: 1.72 }}>
-                      {step.desc}
-                    </p>
+                    {/* Mobile: number + title row, then description */}
+                    <div className="grid grid-cols-[48px_1fr] md:grid-cols-[72px_1fr_1.1fr] gap-x-5 md:gap-x-10 gap-y-2 md:gap-y-0 items-start">
+                      <span
+                        className="font-semibold transition-colors duration-300 group-hover:opacity-100 pt-0.5"
+                        style={{ fontFamily: 'var(--font-display)', fontSize: '1.375rem', letterSpacing: '-0.04em', lineHeight: 1.1, color: 'var(--terracotta)', opacity: 0.45 }}
+                      >
+                        {step.num}
+                      </span>
+                      <h3
+                        className="font-medium text-espresso self-start"
+                        style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1rem, 1.8vw, 1.375rem)', letterSpacing: '-0.02em', lineHeight: 1.2, paddingTop: 2 }}
+                      >
+                        {step.title}
+                      </h3>
+                      {/* Description: full width below title on mobile, 3rd col on desktop */}
+                      <p className="text-body text-walnut col-start-2 md:col-start-3" style={{ lineHeight: 1.72 }}>
+                        {step.desc}
+                      </p>
+                    </div>
                   </div>
                 </Reveal>
               ))}
@@ -211,7 +196,7 @@ export default function ManagementPage() {
         </section>
 
         {/* ── Markets we serve ── */}
-        <section className="py-24" style={{ background: 'var(--cream-light)' }}>
+        <section className="py-16 md:py-24" style={{ background: 'var(--cream-light)' }}>
           <Container>
             <Reveal>
               <SectionHeader
@@ -219,7 +204,7 @@ export default function ManagementPage() {
                 title={<>Six cities, <em className="text-terracotta italic font-normal">one team.</em></>}
               />
             </Reveal>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {cities.map((city, i) => (
                 <Reveal key={city.slug} delay={(i % 3) as 0 | 1 | 2}>
                   <Link href={`/portfolio/${city.slug}`}
@@ -229,14 +214,14 @@ export default function ManagementPage() {
                       style={{ backgroundImage: `url('${city.cover}')`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
                     <div className="absolute inset-0"
                       style={{ background: 'linear-gradient(180deg, transparent 30%, rgba(30,22,17,0.78) 100%)' }} />
-                    <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
-                      <span className="inline-block text-caption text-peach-glow mb-1">{city.stateShort}</span>
-                      <p className="font-medium text-cream-light" style={{ fontFamily: 'var(--font-display)', fontSize: '1.125rem', letterSpacing: '-0.02em' }}>
+                    <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 z-10">
+                      <span className="inline-block text-caption text-peach-glow mb-0.5">{city.stateShort}</span>
+                      <p className="font-medium text-cream-light" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(0.875rem, 2vw, 1.125rem)', letterSpacing: '-0.02em' }}>
                         {city.name}
                       </p>
                     </div>
-                    <span className="absolute top-4 right-4 px-3 py-1 rounded-full text-caption text-cream-light z-10 transition-all duration-300 group-hover:bg-terracotta"
-                      style={{ background: 'rgba(255,252,246,0.18)', backdropFilter: BLUR, WebkitBackdropFilter: BLUR, border: '1px solid rgba(255,252,246,0.25)' }}>
+                    <span className="absolute top-3 right-3 md:top-4 md:right-4 px-2.5 py-1 rounded-full text-caption text-cream-light z-10 transition-all duration-300 group-hover:bg-terracotta"
+                      style={{ background: 'rgba(255,252,246,0.18)', backdropFilter: BLUR, WebkitBackdropFilter: BLUR, border: '1px solid rgba(255,252,246,0.25)', fontSize: '0.6875rem' }}>
                       Explore
                     </span>
                   </Link>
