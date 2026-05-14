@@ -1,7 +1,18 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '/dm4vljcnv/**',
+      },
+    ],
+  },
+  experimental: {
+    optimizePackageImports: ['lucide-react'],
+  },
+}
 
-export default nextConfig;
+export default nextConfig

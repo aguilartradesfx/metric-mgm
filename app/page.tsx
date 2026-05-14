@@ -1,65 +1,211 @@
-import Image from "next/image";
+import Link from 'next/link'
+import { Header }                  from '@/components/sections/Header'
+import { Footer }                  from '@/components/sections/Footer'
+import { HeroHome }                from '@/components/sections/HeroHome'
+import { InfiniteMarketsCarousel } from '@/components/sections/InfiniteMarketsCarousel'
+import { StrengthCardsSection }    from '@/components/sections/StrengthCardsSection'
+import { TestimonialGlass }        from '@/components/sections/TestimonialGlass'
+import { CTAStrip }                from '@/components/sections/CTAStrip'
+import { Reveal }                  from '@/components/ui/Reveal'
+import { Container }               from '@/components/ui/Container'
+import { assets }                  from '@/lib/assets'
+
+export const metadata = {
+  title: 'Metric Management Group — Multifamily Property Management',
+  description:
+    'Metric Management Group enhances property value by leveraging top-tier industry talent, advanced multifamily management systems, and a proactive, hands-on approach.',
+}
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <Header />
+      <main>
+        {/* 1. Hero */}
+        <HeroHome />
+
+        {/* 2. Mission statement — text left, animated stats right */}
+        <section className="py-24" style={{ background: 'var(--cream)' }}>
+          <Container>
+            <div className="grid gap-16 items-center" style={{ gridTemplateColumns: '1.1fr 1fr' }}>
+
+              {/* Left — statement text */}
+              <Reveal>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-caption text-walnut mb-6">
+                  <span className="w-1.5 h-1.5 rounded-full bg-terracotta animate-pulse-glow flex-shrink-0" />
+                  Our mission
+                </div>
+                <p
+                  className="font-medium text-espresso mb-6"
+                  style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.5rem, 2.6vw, 2.25rem)', letterSpacing: '-0.03em', lineHeight: 1.2 }}
+                >
+                  Enhancing property value through{' '}
+                  <em className="text-terracotta italic font-normal">expertise</em>{' '}
+                  & innovation.
+                </p>
+                <p className="text-body text-walnut mb-8" style={{ lineHeight: 1.75 }}>
+                  Metric Management Group enhances property value by leveraging top-tier industry talent,
+                  advanced multifamily management systems, and a proactive, hands-on approach to delivering results.
+                </p>
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 text-body font-medium text-walnut hover:text-espresso transition-colors duration-200"
+                >
+                  Learn about our approach ↗
+                </Link>
+              </Reveal>
+
+              {/* Right — circular occupancy ring */}
+              <Reveal delay={1}>
+                <div className="glass-card p-8 flex flex-col items-center" style={{ borderRadius: 24 }}>
+                  {/* Ring */}
+                  <div className="relative flex items-center justify-center mb-6" style={{ width: 200, height: 200 }}>
+                    <svg width="200" height="200" viewBox="0 0 120 120" style={{ transform: 'rotate(-90deg)' }}>
+                      {/* Track */}
+                      <circle cx="60" cy="60" r="52" fill="none" stroke="var(--sand)" strokeWidth="7" />
+                      {/* Fill — 94.2% of circumference (2π×52≈326.7), offset = 326.7×(1-0.942)≈19 */}
+                      <circle
+                        cx="60" cy="60" r="52"
+                        fill="none"
+                        stroke="url(#ringGrad)"
+                        strokeWidth="7"
+                        strokeLinecap="round"
+                        strokeDasharray="326.7"
+                        strokeDashoffset="19"
+                        style={{ animation: 'fillRing 1.6s cubic-bezier(0.16,1,0.3,1) 0.3s both' }}
+                      />
+                      <defs>
+                        <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%"   stopColor="#B86F4A" />
+                          <stop offset="100%" stopColor="#FFD4B8" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                    {/* Center label */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center">
+                      <span className="font-semibold text-espresso" style={{ fontFamily: 'var(--font-display)', fontSize: '2.25rem', letterSpacing: '-0.05em', lineHeight: 1 }}>94.2%</span>
+                      <span className="text-caption text-walnut mt-1" style={{ letterSpacing: '0.06em' }}>OCCUPANCY</span>
+                    </div>
+                  </div>
+
+                  {/* Label */}
+                  <p className="text-body-sm text-walnut mb-6 text-center">Average portfolio occupancy rate across all markets</p>
+
+                  {/* Secondary stats */}
+                  <div className="w-full flex gap-3 pt-6 border-t" style={{ borderColor: 'var(--sand)' }}>
+                    {[
+                      { stat: '+8.4%', label: 'NOI growth YoY' },
+                      { stat: '98.1%', label: 'Resident satisfaction' },
+                      { stat: '45+',   label: 'Professionals' },
+                    ].map((s) => (
+                      <div key={s.label} className="flex-1 text-center">
+                        <p className="font-semibold text-espresso" style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', letterSpacing: '-0.04em', lineHeight: 1 }}>{s.stat}</p>
+                        <p className="text-caption text-walnut mt-1" style={{ letterSpacing: '0.04em' }}>{s.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+
+            </div>
+          </Container>
+        </section>
+
+        {/* 3. Infinite markets carousel */}
+        <InfiniteMarketsCarousel />
+
+        {/* 4. Strength Cards — What sets us apart */}
+        <StrengthCardsSection />
+
+        {/* 5. Service Strip → /about */}
+        <section className="relative overflow-hidden" style={{ minHeight: 680 }}>
+          <div className="absolute inset-0"
+            style={{ backgroundImage: `url('${assets.home.serviceStrip}')`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
+          {/* Stronger overlay for more visual impact */}
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(120deg, rgba(30,22,17,0.78) 0%, rgba(30,22,17,0.40) 60%, rgba(30,22,17,0.60) 100%)' }} />
+          {/* Radial glow accent */}
+          <div className="absolute pointer-events-none" style={{ top: '50%', left: '38%', transform: 'translate(-50%,-50%)', width: 600, height: 600, background: 'radial-gradient(circle, rgba(184,111,74,0.18), transparent 65%)', borderRadius: '50%' }} />
+
+          <Container className="relative z-10 flex items-center" style={{ minHeight: 680 }}>
+            <Reveal>
+              <div className="max-w-[680px]">
+                <p className="text-caption mb-5 flex items-center gap-1.5" style={{ color: 'rgba(255,212,184,0.72)' }}>
+                  <span style={{ fontSize: 7 }}>◆</span> Our Approach
+                </p>
+                <h2 className="font-medium mb-6" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.25rem, 4.5vw, 3.5rem)', letterSpacing: '-0.035em', lineHeight: 1.08, color: 'var(--cream-light)' }}>
+                  Service tailored to meet{' '}
+                  <em className="italic font-normal" style={{ color: 'var(--peach-glow)' }}>and exceed</em>{' '}
+                  expectations.
+                </h2>
+                <p className="text-body-lg mb-10" style={{ color: 'rgba(245,238,226,0.75)', lineHeight: 1.72, maxWidth: 540 }}>
+                  Metric Management Group curates and oversees a remarkable portfolio of premium apartment communities,
+                  offering residents inviting, well-maintained spaces they are proud to call home.
+                </p>
+                {/* Two CTAs */}
+                <div className="flex gap-3 flex-wrap">
+                  <Link href="/about"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-body font-medium transition-all duration-300 hover:-translate-y-0.5"
+                    style={{ background: 'var(--cream-light)', color: 'var(--espresso)' }}>
+                    About us ↗
+                  </Link>
+                  <Link href="/management"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-body font-medium transition-colors duration-300 text-cream-light"
+                    style={{ background: 'rgba(255,252,246,0.12)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(255,252,246,0.22)' }}>
+                    Our services
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+          </Container>
+        </section>
+
+        {/* 6. Testimonial — between the two photo strips */}
+        <TestimonialGlass />
+
+        {/* 7. Careers Callout → /careers */}
+        <section className="relative overflow-hidden" style={{ minHeight: 680 }}>
+          <div className="absolute inset-0"
+            style={{ backgroundImage: `url('${assets.home.careersCallout}')`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
+          {/* Stronger overlay */}
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(240deg, rgba(30,22,17,0.80) 0%, rgba(30,22,17,0.42) 55%, rgba(30,22,17,0.65) 100%)' }} />
+          {/* Glow accent opposite side */}
+          <div className="absolute pointer-events-none" style={{ top: '50%', right: '-5%', transform: 'translateY(-50%)', width: 560, height: 560, background: 'radial-gradient(circle, rgba(184,111,74,0.22), transparent 65%)', borderRadius: '50%' }} />
+
+          <Container className="relative z-10 flex items-center justify-end" style={{ minHeight: 680 }}>
+            <Reveal delay={1}>
+              <div className="max-w-[620px] text-right">
+                <p className="text-caption mb-5 flex items-center justify-end gap-1.5" style={{ color: 'rgba(255,212,184,0.72)' }}>
+                  Careers <span style={{ fontSize: 7 }}>◆</span>
+                </p>
+                <h2 className="font-medium mb-6" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.25rem, 4.5vw, 3.5rem)', letterSpacing: '-0.035em', lineHeight: 1.08, color: 'var(--cream-light)' }}>
+                  <em className="italic font-normal" style={{ color: 'var(--peach-glow)' }}>Grow</em>{' '}
+                  with the best.
+                </h2>
+                <p className="text-body-lg mb-10" style={{ color: 'rgba(245,238,226,0.75)', lineHeight: 1.72 }}>
+                  Looking for a career that offers growth, innovation, and collaboration? At Metric Management Group,
+                  we provide unparalleled opportunities to advance, learn, and make an impact.
+                </p>
+                <div className="flex gap-3 flex-wrap justify-end">
+                  <Link href="/careers"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-body font-medium transition-all duration-300 hover:-translate-y-0.5"
+                    style={{ background: 'var(--terracotta)', color: 'var(--cream-light)' }}>
+                    Explore open roles ↗
+                  </Link>
+                  <Link href="/about"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-body font-medium transition-colors duration-300 text-cream-light"
+                    style={{ background: 'rgba(255,252,246,0.12)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(255,252,246,0.22)' }}>
+                    Our culture
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+          </Container>
+        </section>
+
+        {/* 8. CTA */}
+        <CTAStrip />
       </main>
-    </div>
-  );
+      <Footer />
+    </>
+  )
 }
