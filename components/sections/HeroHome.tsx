@@ -15,10 +15,9 @@ const FLOAT_CLASSES = ['animate-float-a', 'animate-float-b', 'animate-float-c']
 export function HeroHome() {
   return (
     <section
-      className="relative overflow-hidden"
+      className="relative overflow-hidden h-screen md:h-[85vh]"
       style={{
-        height: '85vh',
-        minHeight: '600px',
+        minHeight: 600,
         marginTop: '-64px',
         backgroundImage: `url('${assets.home.hero}')`,
         backgroundSize: 'cover',
@@ -31,16 +30,23 @@ export function HeroHome() {
         style={{
           background: `
             radial-gradient(ellipse 70% 55% at 50% 25%, transparent 0%, rgba(30,22,17,0.40) 100%),
-            linear-gradient(180deg, rgba(30,22,17,0.20) 0%, transparent 35%, rgba(30,22,17,0.60) 100%)
+            linear-gradient(180deg, rgba(30,22,17,0.20) 0%, transparent 35%, rgba(30,22,17,0.65) 100%)
           `,
         }}
       />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col px-4 sm:px-8 md:px-12" style={{ maxWidth: 1280, margin: '0 auto', paddingTop: 96, paddingBottom: 40 }}>
+      <div className="relative z-10 h-full flex flex-col px-4 sm:px-8 md:px-12" style={{ maxWidth: 1280, margin: '0 auto' }}>
+
+        {/*
+          Mobile:  this spacer is flex-1 → expands to fill all space above the content,
+                   pushing title + CTAs to the bottom third of the hero.
+          Desktop: flex-none with paddingTop 96px → just clears the sticky header.
+        */}
+        <div className="flex-1 md:flex-none" style={{ paddingTop: 'clamp(80px, 12vh, 120px)' }} />
 
         {/* Main row */}
-        <div className="flex-1 grid grid-cols-1 md:grid-cols-[1.35fr_1fr] gap-8 md:gap-10 items-center">
+        <div className="md:flex-1 grid grid-cols-1 md:grid-cols-[1.35fr_1fr] gap-8 md:gap-10 md:items-center pb-10 md:pb-0">
 
           {/* Left — title + CTAs */}
           <div className="text-cream-light">
@@ -144,7 +150,7 @@ export function HeroHome() {
         </div>
 
         {/* Bottom strip — hidden on mobile */}
-        <div className="hidden sm:flex items-center justify-between mt-8 md:mt-10">
+        <div className="hidden sm:flex items-center justify-between mt-8 md:mt-10 pb-10 md:pb-10">
           <div className="flex items-center gap-3 md:gap-4 text-caption flex-wrap" style={{ color: 'rgba(245,238,226,0.80)' }}>
             {CITIES.map((city, i) => (
               <span key={city} className="flex items-center gap-3 md:gap-4">
