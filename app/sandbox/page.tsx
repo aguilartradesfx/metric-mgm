@@ -193,7 +193,7 @@ export default function SandboxPage() {
                 </Glass>
               </div>
               <div className="animate-float-c">
-                <Glass variant="lighter" className="p-5">
+                <Glass variant="light" className="p-5">
                   <p className="text-caption text-terracotta mb-1">floatC · 8s</p>
                   <p className="text-body-sm text-walnut">Staggered feel</p>
                 </Glass>
