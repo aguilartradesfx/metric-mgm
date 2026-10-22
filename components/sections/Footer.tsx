@@ -2,10 +2,15 @@ import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 
 const COMPANY_LINKS = [
-  { label: 'About',      href: '/about' },
-  { label: 'Leadership', href: '/about#leadership' },
-  { label: 'Careers',    href: '/careers' },
-  { label: 'Insights',   href: '/insights' },
+  { label: 'About',         href: '/about' },
+  { label: 'Our Strengths', href: '/strengths' },
+  { label: 'Portfolio',     href: '/portfolio' },
+  { label: 'Careers',       href: '/careers' },
+]
+
+const PHONES = [
+  { display: '(832) 885-8091', tel: '+18328858091' },
+  { display: '(281) 362-5166', tel: '+12813625166' },
 ]
 
 const AUDIENCE_LINKS = [
@@ -38,7 +43,7 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h5 className="text-caption text-walnut mb-4">Company</h5>
+            <p className="text-caption text-walnut mb-4">Company</p>
             <ul className="flex flex-col gap-2.5">
               {COMPANY_LINKS.map((l) => (
                 <li key={l.href}>
@@ -52,7 +57,7 @@ export function Footer() {
 
           {/* Audiences */}
           <div>
-            <h5 className="text-caption text-walnut mb-4">Audiences</h5>
+            <p className="text-caption text-walnut mb-4">Audiences</p>
             <ul className="flex flex-col gap-2.5">
               {AUDIENCE_LINKS.map((l) => (
                 <li key={l.label}>
@@ -66,10 +71,15 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h5 className="text-caption text-walnut mb-4">Contact</h5>
+            <p className="text-caption text-walnut mb-4">Contact</p>
             <ul className="flex flex-col gap-2.5">
-              <li className="text-body text-espresso">(832) 885-8091</li>
-              <li className="text-body text-espresso">(281) 362-5166</li>
+              {PHONES.map((p) => (
+                <li key={p.tel}>
+                  <a href={`tel:${p.tel}`} className="text-body text-espresso hover:text-terracotta transition-colors duration-200">
+                    {p.display}
+                  </a>
+                </li>
+              ))}
               <li>
                 <a href="mailto:info@metricmgmtgroup.com" className="text-body text-espresso hover:text-terracotta transition-colors duration-200">
                   info@metricmgmtgroup.com
@@ -84,13 +94,6 @@ export function Footer() {
           <p className="text-body-sm text-tan">
             © 2026 Metric Management Group · All rights reserved
           </p>
-          <nav className="flex gap-6">
-            {['Privacy', 'Terms', 'Sitemap'].map((label) => (
-              <Link key={label} href="#" className="text-body-sm text-tan hover:text-walnut transition-colors duration-200">
-                {label}
-              </Link>
-            ))}
-          </nav>
         </div>
       </Container>
 

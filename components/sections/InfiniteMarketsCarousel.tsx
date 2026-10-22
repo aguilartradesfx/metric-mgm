@@ -69,7 +69,7 @@ export function InfiniteMarketsCarousel() {
       >
         <div ref={trackRef} className="marquee-track flex gap-5 w-max" style={{ paddingLeft: 28 }}>
           {duplicated.map((city, i) => (
-            <MarketCard key={`${city.slug}-${i}`} city={city} />
+            <MarketCard key={`${city.slug}-${i}`} city={city} duplicate={i >= cities.length} />
           ))}
         </div>
 
@@ -81,10 +81,14 @@ export function InfiniteMarketsCarousel() {
   )
 }
 
-function MarketCard({ city }: { city: (typeof cities)[number] }) {
+// The second copy only exists to make the marquee loop seamless, so it is
+// hidden from assistive tech and the tab order.
+function MarketCard({ city, duplicate }: { city: (typeof cities)[number]; duplicate: boolean }) {
   return (
     <Link
       href={`/portfolio/${city.slug}`}
+      aria-hidden={duplicate || undefined}
+      tabIndex={duplicate ? -1 : undefined}
       className="group relative block flex-shrink-0 rounded-[22px] overflow-hidden transition-transform duration-500 hover:scale-[1.03] hover:-translate-y-1"
       style={{
         width: 300,
@@ -111,9 +115,9 @@ function MarketCard({ city }: { city: (typeof cities)[number] }) {
 
       {/* Glass info panel */}
       <div className="absolute left-4 right-4 bottom-4 glass-card-on-image p-4">
-        <h4 className="font-medium mb-1" style={{ fontFamily: 'var(--font-display)', fontSize: '1rem', letterSpacing: '-0.02em', color: 'var(--cream-light)', lineHeight: 1.2 }}>
+        <h3 className="font-medium mb-1" style={{ fontFamily: 'var(--font-display)', fontSize: '1rem', letterSpacing: '-0.02em', color: 'var(--cream-light)', lineHeight: 1.2 }}>
           {city.name}, {city.state}
-        </h4>
+        </h3>
         <p className="text-body-sm" style={{ color: 'rgba(245,238,226,0.82)', lineHeight: 1.5 }}>
           {city.tagline}
         </p>

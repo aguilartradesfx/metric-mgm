@@ -48,8 +48,8 @@ export default function ContactPage() {
                   </address>
                   <div className="border-t border-sand pt-6 mb-6">
                     <p className="text-caption text-walnut mb-3">Get in Touch</p>
-                    <p className="text-body text-espresso mb-1">(832) 885-8091</p>
-                    <p className="text-body text-espresso mb-3">(281) 362-5166</p>
+                    <a href="tel:+18328858091" className="block text-body text-espresso hover:text-terracotta transition-colors mb-1">(832) 885-8091</a>
+                    <a href="tel:+12813625166" className="block text-body text-espresso hover:text-terracotta transition-colors mb-3">(281) 362-5166</a>
                     <a href="mailto:info@metricmgmtgroup.com" className="text-body text-terracotta hover:text-terracotta-dark transition-colors">
                       info@metricmgmtgroup.com
                     </a>
