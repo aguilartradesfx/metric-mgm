@@ -9,6 +9,12 @@ import { Eyebrow } from '@/components/ui/Eyebrow'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { Logo } from '@/components/ui/Logo'
 
+// Internal component playground: reachable, but kept out of search results.
+export const metadata = {
+  title:  'Sandbox',
+  robots: { index: false, follow: false },
+}
+
 export default function SandboxPage() {
   return (
     <div className="min-h-screen">
