@@ -44,12 +44,6 @@ export const metadata: Metadata = {
     description: 'Enhancing property value through expertise & innovation.',
     images:      ['/og-image.jpg'],
   },
-  icons: {
-    icon: [
-      { url: '/icon.svg', type: 'image/svg+xml' },
-    ],
-    shortcut: '/icon.svg',
-  },
   robots: {
     index:             true,
     follow:            true,
