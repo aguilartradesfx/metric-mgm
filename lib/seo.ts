@@ -10,6 +10,45 @@ export const OG_IMAGE = {
   alt:    'Metric Management Group — multifamily property management in Texas, Arizona and Florida',
 }
 
+/** Organization + WebSite structured data, rendered once in the root layout. */
+export const siteJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type':     'Organization',
+      '@id':       `${SITE_URL}/#organization`,
+      name:        SITE_NAME,
+      url:         SITE_URL,
+      logo:        `${SITE_URL}/icon.png`,
+      image:       `${SITE_URL}${OG_IMAGE.url}`,
+      description: 'Multifamily property management across Texas, Arizona and Florida: conventional, senior living and student housing.',
+      email:       'info@metricmgmtgroup.com',
+      telephone:   '+1-832-885-8091',
+      address: {
+        '@type':         'PostalAddress',
+        streetAddress:   '24347 W. Hardy Road, Suite 303',
+        addressLocality: 'Spring',
+        addressRegion:   'TX',
+        postalCode:      '77373',
+        addressCountry:  'US',
+      },
+      areaServed: [
+        { '@type': 'State', name: 'Texas' },
+        { '@type': 'State', name: 'Arizona' },
+        { '@type': 'State', name: 'Florida' },
+      ],
+    },
+    {
+      '@type':    'WebSite',
+      '@id':      `${SITE_URL}/#website`,
+      url:        SITE_URL,
+      name:       SITE_NAME,
+      inLanguage: 'en-US',
+      publisher:  { '@id': `${SITE_URL}/#organization` },
+    },
+  ],
+}
+
 interface PageMetadataInput {
   /** Page title without the brand suffix; the root layout template appends it. */
   title:          string

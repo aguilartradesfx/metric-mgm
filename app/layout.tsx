@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { bricolage, GeistSans, GeistMono } from './fonts'
-import { SITE_URL, SITE_NAME, OG_IMAGE } from '@/lib/seo'
+import { SITE_URL, SITE_NAME, OG_IMAGE, siteJsonLd } from '@/lib/seo'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -56,7 +56,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="en"
       className={`${bricolage.variable} ${GeistSans.variable} ${GeistMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd).replace(/</g, '\\u003c') }}
+        />
+        {children}
+      </body>
     </html>
   )
 }
