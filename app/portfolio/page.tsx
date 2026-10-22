@@ -8,11 +8,13 @@ import { Container }     from '@/components/ui/Container'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { cities }        from '@/lib/cities'
 import { assets }        from '@/lib/assets'
+import { pageMetadata }  from '@/lib/seo'
 
-export const metadata = {
-  title: 'Portfolio — Metric Management Group',
-  description: 'Metric Management Group operates across six high-growth markets in Texas, Arizona, and Florida.',
-}
+export const metadata = pageMetadata({
+  title:       'Portfolio & Markets',
+  description: 'Metric Management Group operates across six high-growth markets: Houston, Dallas, Austin and San Antonio in Texas, Phoenix in Arizona, and Daytona in Florida.',
+  path:        '/portfolio',
+})
 
 const BLUR = 'blur(24px) saturate(180%)'
 

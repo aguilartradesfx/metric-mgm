@@ -6,11 +6,13 @@ import { Reveal }        from '@/components/ui/Reveal'
 import { Container }     from '@/components/ui/Container'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { assets }        from '@/lib/assets'
+import { pageMetadata }  from '@/lib/seo'
 
-export const metadata = {
-  title: 'About — Metric Management Group',
-  description: 'More than a company, a commitment to quality. Forward-thinking multifamily property management, investment, and development.',
-}
+export const metadata = pageMetadata({
+  title:       'About Us',
+  description: 'More than a company, a commitment to quality. Forward-thinking multifamily property management, investment, and development across TX, AZ & FL.',
+  path:        '/about',
+})
 
 const STRATEGY = [
   {

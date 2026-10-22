@@ -6,6 +6,7 @@ import { CTAStrip }  from '@/components/sections/CTAStrip'
 import { Reveal }    from '@/components/ui/Reveal'
 import { Container } from '@/components/ui/Container'
 import { cities, getCityNavigation } from '@/lib/cities'
+import { pageMetadata } from '@/lib/seo'
 
 export function generateStaticParams() {
   return cities.map((c) => ({ city: c.slug }))
@@ -15,7 +16,11 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
   const { city: slug } = await params
   const city = cities.find((c) => c.slug === slug)
   if (!city) return {}
-  return { title: `${city.name}, ${city.state} — Metric Management Group` }
+  return pageMetadata({
+    title:       `${city.name} Property Management, ${city.stateShort}`,
+    description: `Multifamily property management in ${city.name}, ${city.state}. ${city.tagline} Metric Management Group manages communities across TX, AZ & FL.`,
+    path:        `/portfolio/${city.slug}`,
+  })
 }
 
 const HIGHLIGHTS = [

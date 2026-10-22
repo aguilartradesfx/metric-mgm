@@ -6,6 +6,7 @@ import { Reveal }    from '@/components/ui/Reveal'
 import { Container } from '@/components/ui/Container'
 import { CTAStrip }  from '@/components/sections/CTAStrip'
 import { strengths, getStrengthNavigation } from '@/lib/strengths'
+import { pageMetadata } from '@/lib/seo'
 
 export function generateStaticParams() {
   return strengths.map((s) => ({ strength: s.slug }))
@@ -15,7 +16,11 @@ export async function generateMetadata({ params }: { params: Promise<{ strength:
   const { strength } = await params
   const data = strengths.find((s) => s.slug === strength)
   if (!data) return {}
-  return { title: `${data.title} — Metric Management Group` }
+  return pageMetadata({
+    title:       data.title,
+    description: data.shortDescription,
+    path:        `/strengths/${data.slug}`,
+  })
 }
 
 const BLUR = 'blur(28px) saturate(180%)'

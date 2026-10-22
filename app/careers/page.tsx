@@ -5,11 +5,13 @@ import { Reveal }        from '@/components/ui/Reveal'
 import { Container }     from '@/components/ui/Container'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { assets }        from '@/lib/assets'
+import { pageMetadata }  from '@/lib/seo'
 
-export const metadata = {
-  title: 'Careers — Metric Management Group',
+export const metadata = pageMetadata({
+  title:       'Careers',
   description: 'Elevate your potential at Metric Management Group. Join a team driven by innovation, precision, and a commitment to excellence in property management.',
-}
+  path:        '/careers',
+})
 
 const ROLES = [
   { title: 'Property Management', image: assets.careers.propertyMgmt,   desc: 'Lead communities, drive occupancy, and deliver the resident experience that defines our brand.' },

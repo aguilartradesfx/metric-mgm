@@ -8,11 +8,13 @@ import { Container }     from '@/components/ui/Container'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { assets }        from '@/lib/assets'
 import { cities }        from '@/lib/cities'
+import { pageMetadata }  from '@/lib/seo'
 
-export const metadata = {
-  title: 'Management Services — Metric Management Group',
-  description: 'Strategic leadership for multifamily properties. Conventional, senior, and student housing management across 6 markets.',
-}
+export const metadata = pageMetadata({
+  title:       'Multifamily Management Services',
+  description: 'Strategic leadership for multifamily properties. Conventional, senior, and student housing management across 6 markets in Texas, Arizona and Florida.',
+  path:        '/management',
+})
 
 const SECTORS = [
   { slug: 'conventional-housing', label: 'Conventional Housing', sub: 'Market-rate excellence, maximized NOI.',         image: assets.management.conventional },

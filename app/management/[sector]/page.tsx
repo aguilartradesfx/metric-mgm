@@ -7,6 +7,8 @@ import { CTAStrip }  from '@/components/sections/CTAStrip'
 import { Reveal }    from '@/components/ui/Reveal'
 import { Container } from '@/components/ui/Container'
 import { assets }    from '@/lib/assets'
+import { sectors }   from '@/lib/sectors'
+import { pageMetadata } from '@/lib/seo'
 
 const SECTORS: Record<string, {
   label:   string
@@ -53,14 +55,18 @@ const SECTORS: Record<string, {
 }
 
 export function generateStaticParams() {
-  return Object.keys(SECTORS).map(sector => ({ sector }))
+  return sectors.map(s => ({ sector: s.slug }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ sector: string }> }) {
   const { sector } = await params
-  const data = SECTORS[sector]
+  const data = sectors.find(s => s.slug === sector)
   if (!data) return {}
-  return { title: `${data.label} — Metric Management Group` }
+  return pageMetadata({
+    title:       `${data.label} Management`,
+    description: data.description,
+    path:        `/management/${data.slug}`,
+  })
 }
 
 const BLUR = 'blur(24px) saturate(180%)'

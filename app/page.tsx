@@ -9,12 +9,14 @@ import { CTAStrip }                from '@/components/sections/CTAStrip'
 import { Reveal }                  from '@/components/ui/Reveal'
 import { Container }               from '@/components/ui/Container'
 import { assets }                  from '@/lib/assets'
+import { pageMetadata }            from '@/lib/seo'
 
-export const metadata = {
-  title: 'Metric Management Group — Multifamily Property Management',
-  description:
-    'Metric Management Group enhances property value by leveraging top-tier industry talent, advanced multifamily management systems, and a proactive, hands-on approach.',
-}
+export const metadata = pageMetadata({
+  title:         'Metric Management Group — Multifamily Property Management',
+  description:   'Multifamily property management across Texas, Arizona and Florida. Top-tier talent, advanced systems and a hands-on approach that enhances property value.',
+  path:          '/',
+  absoluteTitle: true,
+})
 
 export default function Home() {
   return (

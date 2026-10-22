@@ -7,11 +7,13 @@ import { Reveal }        from '@/components/ui/Reveal'
 import { Container }     from '@/components/ui/Container'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { assets }        from '@/lib/assets'
+import { pageMetadata }  from '@/lib/seo'
 
-export const metadata = {
-  title: 'Investors — Metric Management Group',
+export const metadata = pageMetadata({
+  title:       'Multifamily Investors',
   description: 'Partner with Metric Management Group for disciplined, data-driven multifamily investment across Texas and the Sun Belt.',
-}
+  path:        '/investors',
+})
 
 const REASONS = [
   { num: '01', title: 'Proven Track Record',   desc: 'Consistent outperformance across economic cycles with disciplined underwriting and hands-on asset management.' },

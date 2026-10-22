@@ -7,11 +7,13 @@ import { Reveal }       from '@/components/ui/Reveal'
 import { Container }    from '@/components/ui/Container'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { assets }       from '@/lib/assets'
+import { pageMetadata }  from '@/lib/seo'
 
-export const metadata = {
-  title: 'Our Strengths — Metric Management Group',
+export const metadata = pageMetadata({
+  title:       'Our Strengths',
   description: 'Four core strengths that set Metric apart: collaborative partnership, personalized management, proven performance, and strategic marketing.',
-}
+  path:        '/strengths',
+})
 
 const STRENGTHS = [
   {

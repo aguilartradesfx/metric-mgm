@@ -6,11 +6,13 @@ import { Reveal }        from '@/components/ui/Reveal'
 import { Container }     from '@/components/ui/Container'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { assets }        from '@/lib/assets'
+import { pageMetadata }  from '@/lib/seo'
 
-export const metadata = {
-  title: 'Residents — Metric Management Group',
+export const metadata = pageMetadata({
+  title:       'Residents',
   description: 'Everything you need as a Metric resident — pay rent, submit maintenance requests, and access your portal in one place.',
-}
+  path:        '/residents',
+})
 
 const QUICK_ACTIONS = [
   {
