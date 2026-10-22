@@ -5,6 +5,7 @@ import { Footer }    from '@/components/sections/Footer'
 import { CTAStrip }  from '@/components/sections/CTAStrip'
 import { Reveal }    from '@/components/ui/Reveal'
 import { Container } from '@/components/ui/Container'
+import { HeroImage } from '@/components/ui/HeroImage'
 import { cities, getCityNavigation } from '@/lib/cities'
 import { pageMetadata } from '@/lib/seo'
 
@@ -46,10 +47,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
           className="relative overflow-hidden"
           style={{ minHeight: 600, marginTop: '-64px' }}
         >
-          <div
-            className="absolute inset-0"
-            style={{ backgroundImage: `url('${city.cover}')`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-          />
+          <HeroImage src={city.cover} mobileHeight={700} />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(30,22,17,0.18) 0%, transparent 30%, rgba(30,22,17,0.80) 100%)' }} />
           <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 60% at 30% 70%, rgba(30,22,17,0.45) 0%, transparent 70%)' }} />
 

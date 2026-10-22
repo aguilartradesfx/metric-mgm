@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { TiltCard } from '@/components/ui/TiltCard'
 import { assets } from '@/lib/assets'
+import { HeroImage } from '@/components/ui/HeroImage'
 
 const STAT_CARDS = [
   { eyebrow: 'By the numbers', stat: '225', sup: '+', label: 'Units under management', variant: 'light' as const, size: 'lg' },
@@ -19,11 +20,9 @@ export function HeroHome() {
       style={{
         minHeight: 600,
         marginTop: '-64px',
-        backgroundImage: `url('${assets.home.hero}')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
       }}
     >
+      <HeroImage src={assets.home.hero} mobileHeight={932} />
       {/* Gradient overlays */}
       <div
         className="absolute inset-0 pointer-events-none"

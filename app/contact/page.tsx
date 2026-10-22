@@ -4,6 +4,7 @@ import { Header }    from '@/components/sections/Header'
 import { Footer }    from '@/components/sections/Footer'
 import { Reveal }    from '@/components/ui/Reveal'
 import { Container } from '@/components/ui/Container'
+import { HeroImage } from '@/components/ui/HeroImage'
 import { assets }    from '@/lib/assets'
 
 const BLUR = 'blur(24px) saturate(180%)'
@@ -24,7 +25,8 @@ export default function ContactPage() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="relative overflow-hidden" style={{ height: 420, marginTop: '-64px', backgroundImage: `url('${assets.contact.hero}')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <section className="relative overflow-hidden" style={{ height: 420, marginTop: '-64px' }}>
+          <HeroImage src={assets.contact.hero} mobileHeight={420} />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(30,22,17,0.35) 0%, transparent 40%, rgba(30,22,17,0.65) 100%)' }} />
           <Container className="relative z-10 h-full flex flex-col justify-end pb-14" style={{ paddingTop: 120 }}>
             <h1 className="text-display-1 font-medium text-cream-light" style={{ fontFamily: 'var(--font-display)', fontVariationSettings: "'opsz' 96", textShadow: '0 4px 24px rgba(0,0,0,0.3)' }}>

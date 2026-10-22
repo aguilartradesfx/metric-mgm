@@ -1,5 +1,6 @@
 import { Eyebrow } from '@/components/ui/Eyebrow'
 import { Container } from '@/components/ui/Container'
+import { HeroImage } from '@/components/ui/HeroImage'
 
 interface PageHeroProps {
   eyebrow:    string
@@ -18,11 +19,9 @@ export function PageHero({ eyebrow, title, subtitle, image, height = 560, align 
       style={{
         height,
         marginTop: '-64px',
-        backgroundImage: `url('${image}')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
       }}
     >
+      <HeroImage src={image} mobileHeight={height} />
       {/* Gradient overlays */}
       <div className="absolute inset-0 pointer-events-none" style={{
         background: darker

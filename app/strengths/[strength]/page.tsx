@@ -5,6 +5,7 @@ import { Footer }    from '@/components/sections/Footer'
 import { Reveal }    from '@/components/ui/Reveal'
 import { Container } from '@/components/ui/Container'
 import { CTAStrip }  from '@/components/sections/CTAStrip'
+import { HeroImage } from '@/components/ui/HeroImage'
 import { strengths, getStrengthNavigation } from '@/lib/strengths'
 import { pageMetadata } from '@/lib/seo'
 
@@ -39,8 +40,7 @@ export default async function StrengthPage({ params }: { params: Promise<{ stren
 
         {/* ── Hero full-bleed ── */}
         <section className="relative overflow-hidden" style={{ height: 520, marginTop: '-64px' }}>
-          <div className="absolute inset-0 transition-transform duration-700"
-            style={{ backgroundImage: `url('${data.heroImage}')`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
+          <HeroImage src={data.heroImage} mobileHeight={520} />
           <div className="absolute inset-0"
             style={{ background: 'linear-gradient(180deg, rgba(30,22,17,0.22) 0%, transparent 40%, rgba(30,22,17,0.70) 100%)' }} />
           <Container className="relative z-10 h-full flex flex-col justify-end pb-14" style={{ paddingTop: 120 }}>
