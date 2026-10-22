@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { Building2, TrendingUp, House, BriefcaseBusiness } from 'lucide-react'
 import { Header }    from '@/components/sections/Header'
 import { Footer }    from '@/components/sections/Footer'
 import { Reveal }    from '@/components/ui/Reveal'
@@ -10,10 +11,10 @@ import { assets }    from '@/lib/assets'
 const BLUR = 'blur(24px) saturate(180%)'
 
 const AUDIENCES = [
-  { id: 'owner',     label: 'Property Owner',  icon: '🏢', desc: 'I have a property to manage' },
-  { id: 'investor',  label: 'Investor',         icon: '📈', desc: 'I want to invest with Metric' },
-  { id: 'resident',  label: 'Resident',         icon: '🏠', desc: 'I live in a Metric community' },
-  { id: 'candidate', label: 'Job Candidate',    icon: '💼', desc: 'I want to join the team' },
+  { id: 'owner',     label: 'Property Owner',  Icon: Building2,         desc: 'I have a property to manage' },
+  { id: 'investor',  label: 'Investor',        Icon: TrendingUp,        desc: 'I want to invest with Metric' },
+  { id: 'resident',  label: 'Resident',        Icon: House,             desc: 'I live in a Metric community' },
+  { id: 'candidate', label: 'Job Candidate',   Icon: BriefcaseBusiness, desc: 'I want to join the team' },
 ]
 
 export default function ContactPage() {
@@ -81,7 +82,9 @@ export default function ContactPage() {
                             <button key={a.id} onClick={() => setSelected(a.id)}
                               className="text-left p-5 rounded-[18px] transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
                               style={{ background: 'var(--cream-light)', border: '1px solid var(--sand)', boxShadow: '0 2px 8px rgba(30,22,17,0.06)' }}>
-                              <span className="text-2xl block mb-2">{a.icon}</span>
+                              <span className="w-10 h-10 mb-3 rounded-full flex items-center justify-center" style={{ background: 'var(--cream)', border: '1px solid var(--sand)' }}>
+                                <a.Icon className="w-[18px] h-[18px] text-terracotta" strokeWidth={1.75} aria-hidden />
+                              </span>
                               <p className="text-body font-medium text-espresso mb-0.5">{a.label}</p>
                               <p className="text-body-sm text-walnut">{a.desc}</p>
                             </button>
@@ -94,7 +97,6 @@ export default function ContactPage() {
                         <div className="flex items-center gap-3 mb-7">
                           <button onClick={() => setSelected(null)} className="text-body-sm text-walnut hover:text-espresso transition-colors">← Back</button>
                           <span className="text-caption text-terracotta">
-                            {AUDIENCES.find(a => a.id === selected)?.icon}{' '}
                             {AUDIENCES.find(a => a.id === selected)?.label}
                           </span>
                         </div>

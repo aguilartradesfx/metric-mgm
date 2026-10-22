@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { CreditCard, Wrench, KeyRound } from 'lucide-react'
 import { Header }        from '@/components/sections/Header'
 import { Footer }        from '@/components/sections/Footer'
 import { PageHero }      from '@/components/sections/PageHero'
@@ -16,21 +17,21 @@ export const metadata = pageMetadata({
 
 const QUICK_ACTIONS = [
   {
-    icon: '💳',
+    Icon:  CreditCard,
     title: 'Pay Rent',
     desc:  'Securely pay your rent online — set up autopay or make a one-time payment anytime.',
     label: 'Go to portal',
     href:  '#portal',
   },
   {
-    icon: '🔧',
+    Icon:  Wrench,
     title: 'Submit a Request',
     desc:  'Report a maintenance issue and our team will be on it — fast, professional, and tracked.',
     label: 'Submit request',
     href:  '#maintenance',
   },
   {
-    icon: '🏠',
+    Icon:  KeyRound,
     title: 'Resident Login',
     desc:  'Access your full resident portal: documents, notices, community updates, and more.',
     label: 'Sign in',
@@ -75,7 +76,9 @@ export default function ResidentsPage() {
                 <Reveal key={a.title} delay={(i % 3) as 0 | 1 | 2}>
                   <div className="rounded-[22px] p-8 h-full flex flex-col"
                     style={{ background: 'rgba(255,252,246,0.55)', backdropFilter: BLUR, WebkitBackdropFilter: BLUR, border: '1px solid rgba(255,252,246,0.45)', boxShadow: '0 4px 18px rgba(30,22,17,0.08)' }}>
-                    <span className="text-4xl block mb-5">{a.icon}</span>
+                    <span className="w-12 h-12 mb-5 rounded-full flex items-center justify-center" style={{ background: 'var(--cream)', border: '1px solid var(--sand)' }}>
+                      <a.Icon className="w-5 h-5 text-terracotta" strokeWidth={1.75} aria-hidden />
+                    </span>
                     <h3 className="font-medium text-espresso mb-3" style={{ fontFamily: 'var(--font-display)', fontSize: '1.375rem', letterSpacing: '-0.02em' }}>
                       {a.title}
                     </h3>
