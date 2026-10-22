@@ -18,7 +18,7 @@ export const metadata = pageMetadata({
 const REASONS = [
   { num: '01', title: 'Proven Track Record',   desc: 'Consistent outperformance across economic cycles with disciplined underwriting and hands-on asset management.' },
   { num: '02', title: 'Vertically Integrated', desc: 'From acquisition to management, every function is in-house — eliminating third-party friction and misaligned incentives.' },
-  { num: '03', title: 'Sun Belt Focus',         desc: 'Concentrated in six high-growth Texas markets with strong job creation, population inflows, and constrained supply.' },
+  { num: '03', title: 'Sun Belt Focus',         desc: 'Concentrated in six high-growth Sun Belt markets across Texas, Arizona and Florida with strong job creation, population inflows, and constrained supply.' },
   { num: '04', title: 'Proprietary Deal Flow',  desc: 'Relationships-driven sourcing generates off-market opportunities that institutional buyers never see.' },
   { num: '05', title: 'Transparent Reporting', desc: 'Real-time investor dashboard, monthly financials, and quarterly performance calls — no surprises.' },
   { num: '06', title: 'Aligned Incentives',    desc: 'We co-invest alongside our LPs in every deal. Our capital is at work before yours.' },
@@ -173,7 +173,7 @@ export default function InvestorsPage() {
                     Proprietary BI that surfaces what others miss.
                   </h2>
                   <p className="text-body mb-8" style={{ color: 'rgba(245,238,226,0.75)', lineHeight: 1.7 }}>
-                    Our business intelligence platform aggregates rent trends, occupancy signals, and macro data across all six Texas markets in real time — giving our investors a strategic edge at every stage of the cycle.
+                    Our business intelligence platform aggregates rent trends, occupancy signals, and macro data across all six of our markets in Texas, Arizona and Florida in real time — giving our investors a strategic edge at every stage of the cycle.
                   </p>
                   <Link href="/contact"
                     className="self-start inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-body font-medium transition-all duration-300 hover:-translate-y-0.5"
