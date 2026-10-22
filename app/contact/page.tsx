@@ -35,7 +35,7 @@ export default function ContactPage() {
 
         <section className="py-24" style={{ background: 'linear-gradient(180deg, var(--cream-light) 0%, var(--cream) 100%)' }}>
           <Container>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 48, alignItems: 'start' }}>
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-8 md:gap-12 items-start">
 
               {/* Info card */}
               <Reveal>
@@ -64,7 +64,7 @@ export default function ContactPage() {
               {/* Multi-step form */}
               <Reveal delay={1}>
                 {!sent ? (
-                  <div className="rounded-[28px] p-10"
+                  <div className="rounded-[28px] p-6 sm:p-10"
                     style={{ background: 'rgba(255,252,246,0.55)', backdropFilter: BLUR, WebkitBackdropFilter: BLUR, border: '1px solid rgba(255,252,246,0.45)', boxShadow: '0 4px 18px rgba(30,22,17,0.08)' }}>
 
                     {/* Step 1 — who are you */}
@@ -74,7 +74,7 @@ export default function ContactPage() {
                           Who are you?
                         </h2>
                         <p className="text-body-sm text-walnut mb-7">Select the option that best describes you so we can route your message to the right team.</p>
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           {AUDIENCES.map(a => (
                             <button key={a.id} onClick={() => setSelected(a.id)}
                               className="text-left p-5 rounded-[18px] transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
@@ -100,7 +100,7 @@ export default function ContactPage() {
                           Tell us more
                         </h2>
                         <form onSubmit={e => { e.preventDefault(); setSent(true) }}>
-                          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                             {['First name', 'Last name'].map(f => (
                               <div key={f}>
                                 <label className="block text-body-sm font-medium text-espresso mb-1.5">{f}</label>
@@ -129,7 +129,7 @@ export default function ContactPage() {
                     )}
                   </div>
                 ) : (
-                  <div className="rounded-[28px] p-12 text-center"
+                  <div className="rounded-[28px] p-8 sm:p-12 text-center"
                     style={{ background: 'rgba(255,252,246,0.55)', backdropFilter: BLUR, WebkitBackdropFilter: BLUR, border: '1px solid rgba(255,252,246,0.45)' }}>
                     <p className="text-4xl mb-4">✓</p>
                     <h2 className="font-medium text-espresso mb-3" style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', letterSpacing: '-0.02em' }}>Message sent.</h2>

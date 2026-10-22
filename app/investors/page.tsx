@@ -66,7 +66,7 @@ export default function InvestorsPage() {
         {/* ── Track record ── */}
         <section className="py-24" style={{ background: 'linear-gradient(180deg, var(--cream-light) 0%, var(--cream) 100%)' }}>
           <Container>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 64, alignItems: 'center' }}>
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-10 md:gap-16 items-center">
               <Reveal>
                 <p className="text-caption text-terracotta mb-3 flex items-center gap-1.5">
                   <span style={{ fontSize: 7 }}>◆</span> Track Record
@@ -111,7 +111,7 @@ export default function InvestorsPage() {
                 title={<>Six reasons investors <em className="text-terracotta italic font-normal">come back.</em></>}
               />
             </Reveal>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 18 }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[18px]">
               {REASONS.map((r, i) => (
                 <Reveal key={r.num} delay={(i % 3) as 0 | 1 | 2}>
                   <div className="card-interactive rounded-[22px] p-7 h-full"
@@ -137,7 +137,7 @@ export default function InvestorsPage() {
                 title={<>Three paths to <em className="text-terracotta italic font-normal">superior returns.</em></>}
               />
             </Reveal>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {STRATEGIES.map((s, i) => (
                 <Reveal key={s.title} delay={(i % 3) as 0 | 1 | 2}>
                   <div className="card-interactive rounded-[22px] overflow-hidden h-full flex flex-col"
@@ -162,9 +162,9 @@ export default function InvestorsPage() {
         {/* ── Data callout ── */}
         <section className="py-24" style={{ background: 'var(--cream-light)' }}>
           <Container>
-            <div className="rounded-[28px] overflow-hidden" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 420 }}>
-              <div style={{ backgroundImage: `url('${assets.investors.data}')`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-              <div className="p-12 flex flex-col justify-center" style={{ background: 'var(--espresso)' }}>
+            <div className="rounded-[28px] overflow-hidden grid grid-cols-1 md:grid-cols-2" style={{ minHeight: 420 }}>
+              <div className="min-h-[240px]" style={{ backgroundImage: `url('${assets.investors.data}')`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
+              <div className="p-8 md:p-12 flex flex-col justify-center" style={{ background: 'var(--espresso)' }}>
                 <Reveal>
                   <p className="text-caption mb-4 flex items-center gap-1.5" style={{ color: 'rgba(255,212,184,0.7)' }}>
                     <span style={{ fontSize: 7 }}>◆</span> Investor Intelligence
@@ -196,10 +196,10 @@ export default function InvestorsPage() {
               />
             </Reveal>
             <Reveal delay={1}>
-              <div className="rounded-[28px] p-10"
+              <div className="rounded-[28px] p-6 sm:p-10"
                 style={{ background: 'rgba(255,252,246,0.55)', backdropFilter: BLUR, WebkitBackdropFilter: BLUR, border: '1px solid rgba(255,252,246,0.45)', boxShadow: '0 4px 18px rgba(30,22,17,0.08)' }}>
                 <form>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                     {[
                       { id: 'first', label: 'First name', type: 'text',  placeholder: 'Alex' },
                       { id: 'last',  label: 'Last name',  type: 'text',  placeholder: 'Johnson' },

@@ -70,7 +70,7 @@ export default function ResidentsPage() {
                 title={<>Your home, <em className="text-terracotta italic font-normal">managed simply.</em></>}
               />
             </Reveal>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {QUICK_ACTIONS.map((a, i) => (
                 <Reveal key={a.title} delay={(i % 3) as 0 | 1 | 2}>
                   <div className="rounded-[22px] p-8 h-full flex flex-col"
@@ -101,12 +101,12 @@ export default function ResidentsPage() {
                 title={<>Spaces designed for <em className="text-terracotta italic font-normal">living well.</em></>}
               />
             </Reveal>
-            <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 16, marginBottom: 16 }}>
+            <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-4 mb-4">
               <Reveal>
                 <div className="rounded-[22px] overflow-hidden"
                   style={{ aspectRatio: '4/3', backgroundImage: `url('${assets.residents.amenity1}')`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
               </Reveal>
-              <div style={{ display: 'grid', gridTemplateRows: '1fr 1fr', gap: 16 }}>
+              <div className="grid grid-rows-2 gap-4 min-h-[340px] md:min-h-0">
                 <Reveal delay={1}>
                   <div className="rounded-[22px] overflow-hidden h-full"
                     style={{ backgroundImage: `url('${assets.residents.amenity2}')`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
@@ -129,7 +129,7 @@ export default function ResidentsPage() {
                 title={<>The Metric resident <em className="text-terracotta italic font-normal">promise.</em></>}
               />
             </Reveal>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 18 }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[18px]">
               {AMENITY_FEATURES.map((f, i) => (
                 <Reveal key={f.title} delay={(i % 3) as 0 | 1 | 2}>
                   <div className="rounded-[22px] p-7 h-full flex flex-col gap-2"
@@ -148,11 +148,11 @@ export default function ResidentsPage() {
         {/* ── Contact strip for residents ── */}
         <section className="py-24" style={{ background: 'var(--cream-light)' }}>
           <Container>
-            <div className="rounded-[28px] p-12"
+            <div className="rounded-[28px] p-8 md:p-12"
               style={{ background: 'var(--espresso)', position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', top: -80, right: -80, width: 320, height: 320, borderRadius: '50%', background: 'radial-gradient(circle, rgba(184,111,74,0.25) 0%, transparent 70%)' }} />
               <div style={{ position: 'absolute', bottom: -60, left: -60, width: 240, height: 240, borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,212,184,0.12) 0%, transparent 70%)' }} />
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: 48, alignItems: 'center', position: 'relative', zIndex: 1 }}>
+              <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 md:gap-12 items-center relative z-[1]">
                 <Reveal>
                   <p className="text-caption mb-3 flex items-center gap-1.5" style={{ color: 'rgba(255,212,184,0.7)' }}>
                     <span style={{ fontSize: 7 }}>◆</span> Need help?
