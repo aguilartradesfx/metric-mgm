@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { bricolage, GeistSans, GeistMono } from './fonts'
-import { SITE_URL, SITE_NAME } from '@/lib/seo'
+import { SITE_URL, SITE_NAME, OG_IMAGE } from '@/lib/seo'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -29,11 +29,13 @@ export const metadata: Metadata = {
     siteName:    SITE_NAME,
     title:       'Metric Management Group — Multifamily Property Management',
     description: 'Enhancing property value through expertise & innovation. Strategic multifamily management across 6 markets in TX, AZ & FL.',
+    images:      [OG_IMAGE],
   },
   twitter: {
     card:        'summary_large_image',
     title:       'Metric Management Group — Multifamily Property Management',
     description: 'Enhancing property value through expertise & innovation. Strategic multifamily management across 6 markets in TX, AZ & FL.',
+    images:      [OG_IMAGE.url],
   },
   robots: {
     index:             true,

@@ -3,6 +3,13 @@ import type { Metadata } from 'next'
 export const SITE_URL  = 'https://metricmgmtgroup.com'
 export const SITE_NAME = 'Metric Management Group'
 
+export const OG_IMAGE = {
+  url:    '/og-image.jpg',
+  width:  1200,
+  height: 630,
+  alt:    'Metric Management Group — multifamily property management in Texas, Arizona and Florida',
+}
+
 interface PageMetadataInput {
   /** Page title without the brand suffix; the root layout template appends it. */
   title:          string
@@ -32,11 +39,13 @@ export function pageMetadata({ title, description, path, absoluteTitle = false }
       url:         path,
       title:       fullTitle,
       description,
+      images:      [OG_IMAGE],
     },
     twitter: {
       card:        'summary_large_image',
       title:       fullTitle,
       description,
+      images:      [OG_IMAGE.url],
     },
   }
 }
