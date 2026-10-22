@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { bricolage, GeistSans, GeistMono } from './fonts'
+import { bricolage, GeistSans } from './fonts'
 import { SITE_URL, SITE_NAME, OG_IMAGE, siteJsonLd } from '@/lib/seo'
 import './globals.css'
 
@@ -54,7 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${bricolage.variable} ${GeistSans.variable} ${GeistMono.variable}`}
+      className={`${bricolage.variable} ${GeistSans.variable}`}
     >
       <body>
         <script
